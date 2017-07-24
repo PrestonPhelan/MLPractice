@@ -30,8 +30,9 @@ meanAdjustedX = X - mu;
 
 sigma = std(X); % 1 x n row vector of standard deviations
 standardizedFeatures = meanAdjustedX ./ sigma;
+X_norm = standardizedFeatures;
 % Need to add first column of ones for constant.
-X_norm = [ones(size(X, 1), 1), standardizedFeatures];
+% X_norm = [ones(size(X, 1), 1), standardizedFeatures];
 
 
 
