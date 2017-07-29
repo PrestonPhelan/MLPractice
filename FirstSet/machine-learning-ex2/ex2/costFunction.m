@@ -10,7 +10,8 @@ m = length(y); % number of training examples
 % You need to return the following variables correctly
 J = 0;
 grad = zeros(size(theta));
-h = sigmoid(X' * theta);
+h = sigmoid(X * theta);  % X is m x n , theta is n x 1 , result is m x 1
+log_h = log(h);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
@@ -21,10 +22,11 @@ h = sigmoid(X' * theta);
 % Note: grad should have the same dimensions as theta
 %
 % X
-h = sigmoid(X' * theta)
+costs = -y .* log_h - (1 - y) .* log(1 - h);
+J = sum(costs) / m;
 
-
-
+% Result should be n x 1
+grad = X' * (h - y) ./ m
 
 
 
