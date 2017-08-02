@@ -40,7 +40,8 @@ h = sigmoid(z); % 5000 x 1 (m x 1)
 j = -1 * y .* log(h) - (1 - y) .* log(1 - h);
 J = sum(j) / m;
 
-
+h_minus_y = h - y;
+grad = X' * h_minus_y / m;
 
 
 
