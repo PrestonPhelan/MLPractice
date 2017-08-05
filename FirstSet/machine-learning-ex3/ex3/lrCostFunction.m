@@ -38,7 +38,7 @@ grad = zeros(size(theta));
 z = X * theta; % 5000 x 1  (m x 1)
 h = sigmoid(z); % 5000 x 1 (m x 1)
 j = -1 * y .* log(h) - (1 - y) .* log(1 - h);
-reg_term = lambda * sum(theta(2:end) .^ 2) / 2
+reg_term = lambda * sum(theta(2:end) .^ 2) / 2;
 J = (sum(j) + reg_term) / m;
 
 h_minus_y = h - y;
